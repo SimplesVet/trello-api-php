@@ -6,7 +6,7 @@ PHP SDK to use Trello Api
 $key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
 $token = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
 ```
-(See who to get API Key and Token)[get-key-token.md]
+[See who to get API Key and Token](get-key-token.md)
 
 ## Boards
 ```php
@@ -25,7 +25,7 @@ $arguments = array('fields' => 'id,name,idList');
 $return = $trelloBoard->get($boardId, 'cards', $arguments);
 ```
 
-(See `Boards` in API Reference)[https://developers.trello.com/advanced-reference/board]
+[See `Boards` in API Reference](https://developers.trello.com/advanced-reference/board)
 
 ## Cards
 ```php
@@ -49,4 +49,4 @@ $data = array(
 $return = $trelloCard->post($data);
 ```
 
-(See `Cards` in API Reference)[https://developers.trello.com/advanced-reference/card]
+[See `Cards` in API Reference](https://developers.trello.com/advanced-reference/card)
