@@ -6,7 +6,7 @@ PHP SDK to use Trello Api
 $key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
 $token = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
 ```
-[See who to get API Key and Token](get-key-token.md)
+[See how to get API Key and Token](get-key-token.md)
 
 ## Boards
 ```php
