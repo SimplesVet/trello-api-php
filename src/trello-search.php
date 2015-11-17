@@ -30,8 +30,11 @@ class TrelloSearch extends Trello
 			);
 			(!empty($types)) ? $arguments['modelTypes'] = $types : '';
 			(!empty($boardID)) ? $arguments['idBoards'] = $boardID : '';
-			(!empty($moreFilters)) ? array_push($arguments, $boardID) : '';
-
+			if (!empty($moreFilters)) {
+				foreach ($moreFilters as $key => $value) {
+					$arguments[$key] = $value;
+				}
+			}
 			$authParam = $this->getAuthParam();
 			$url = $this->getUrl();
 
