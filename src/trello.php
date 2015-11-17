@@ -15,6 +15,11 @@ class Trello
 	private $apiVersion = '1';
 	private $curl;
 
+	/**
+	 * Construct a Trello API Object
+	 * @param string $key   	Trello Developer Key
+	 * @param string $token 	User token
+	 */
 	function __construct($key, $token){
 		$this->key = $key;
 		$this->token = $token;
@@ -22,15 +27,19 @@ class Trello
 		$this->curl = new Curl();
 	}
 
-	public function setDefaultCollection ($collection) {
-		$defaultCollection = $collection;
-	}
-
-	public function getAuthParam(){
+	/**
+	 * Mount queryString for API Calls
+	 * @return string QueryString for the calls
+	 */
+	private function getAuthParam(){
 		return '?key=' . $this->key . '&token=' . $this->token;
 	}
 
-	public function getUrl(){
+	/**
+	 * Mount the URL for the Trello APO
+	 * @return string URL for the API
+	 */
+	private function getUrl(){
 		return $this->apiUrl . $this->apiVersion . '/';
 	}
 
