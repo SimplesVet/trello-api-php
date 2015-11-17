@@ -111,19 +111,18 @@ class Trello
 		}
 	}
 
-	// TODO: Refactor delete
-
 	/**
 	 * Does a DELETE request to Trello API
+	 * @param  string $collectionId ID of item to be deleted
 	 * @param  string $complement 	Complement of the URL. Will be placed after collection or ID
 	 * @return object               The response from Trello API
 	 */
-	public function delete($complement = '') {
+	public function delete($collectionId = '', $complement = '') {
 		try {
 			$authParam = $this->getAuthParam();
 			$url = $this->getUrl();
 
-			$this->curl->delete($url . $this->collection .'/' . $complement . $authParam);
+			$this->curl->delete($url . $this->collection .'/' . $collectionId . '/' . $complement . $authParam);
 			return $this->curl->response;
 		} catch (Exception $e) {
 			throw new Exception($e->getMessage());
