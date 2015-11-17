@@ -13,7 +13,7 @@ class Trello
 	private $token;
 	private $apiUrl = 'https://api.trello.com/';
 	private $apiVersion = '1';
-	private $curl;
+	protected $curl;
 
 	/**
 	 * Construct a Trello API Object
@@ -31,7 +31,7 @@ class Trello
 	 * Mount queryString for API Calls
 	 * @return string QueryString for the calls
 	 */
-	private function getAuthParam(){
+	protected function getAuthParam(){
 		return '?key=' . $this->key . '&token=' . $this->token;
 	}
 
@@ -39,7 +39,7 @@ class Trello
 	 * Mount the URL for the Trello APO
 	 * @return string URL for the API
 	 */
-	private function getUrl(){
+	protected function getUrl(){
 		return $this->apiUrl . $this->apiVersion . '/';
 	}
 
