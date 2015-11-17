@@ -15,7 +15,6 @@ class TrelloCard extends Trello
 
 	public $id = "";
 
-
 	/**
 	 * Archive a Trello Card
 	 * @param  string $cardID 	ID of the card that will be archived
@@ -48,5 +47,10 @@ class TrelloCard extends Trello
 		$data = array("text" => $comment);
 		$this->post($data, "actions/comments", $cardID);
 		return $this->curl->response;
+	}
+
+	public function moveToList ($cardID, $listID) {
+		$data = array("value" => $listID);
+		$this->put($cardID, $data, "idList");
 	}
 }
