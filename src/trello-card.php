@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
 *
@@ -6,32 +6,51 @@
 */
 class TrelloCard extends Trello
 {
-	public function get($cardId, $complement = '', $arguments = array()) {
-		try {
-			$authParam = $this->getAuthParam();
-			$url = $this->getUrl();
+	/**
+	 * The string of collection on Trello API.
+	 * Will be used to generate the URLs for requests.
+	 * @var string
+	 */
+	public $collection = "cards";
 
-			$argumentsParam = '';
-			if(!empty($arguments)){
-				$argumentsParam = '&' . http_build_query($arguments);
-			}
+	public $id = "";
 
-			$this->curl->get($url . 'cards/' . $cardId . '/' . $complement . $authParam . $argumentsParam);
-			return $this->curl->response;
-		} catch (Exception $e) {
-			throw new Exception($e->getMessage());
-		}
+	/**
+	 * Archive a Trello Card
+	 * @param  string $cardID 	ID of the card that will be archived
+	 * @return object          	Response of Trello API
+	 */
+	public function archive ($cardID) {
+		$data = array("value" => true);
+		$this->put($cardID, $data, "closed");
+		return $this->curl->response;
 	}
 
-	public function post($data, $complement = '', $arguments = array()) {
-		try {
-			$authParam = $this->getAuthParam();
-			$url = $this->getUrl();
+	/**
+	 * Remove a Trello Card from Archive to your last list
+	 * @param  string $cardID 	ID of the card that will be removed from archive
+	 * @return object          	Response of Trello API
+	 */
+	public function unarchive ($cardID) {
+		$data = array("value" => false);
+		$this->put($cardID, $data, "closed");
+		return $this->curl->response;
+	}
 
-			$this->curl->post($url . 'cards/' . $complement . $authParam, $data);
-			return $this->curl->response;
-		} catch (Exception $e) {
-			throw new Exception($e->getMessage());
-		}
+	/**
+	 * Comment a Trello Card
+	 * @param  string $cardID  	ID of the card that will be commented
+	 * @param  string $comment 	Comment text
+	 * @return object          	Response of Trello API
+	 */
+	public function comment ($cardID, $comment) {
+		$data = array("text" => $comment);
+		$this->post($data, "actions/comments", $cardID);
+		return $this->curl->response;
+	}
+
+	public function moveToList ($cardID, $listID) {
+		$data = array("value" => $listID);
+		$this->put($cardID, $data, "idList");
 	}
 }
