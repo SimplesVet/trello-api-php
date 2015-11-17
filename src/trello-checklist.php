@@ -4,7 +4,7 @@
 *
 * API Reference: https://developers.trello.com/advanced-reference/checklist
 */
-class TrelloCard extends Trello
+class TrelloChecklist extends Trello
 {
 	/**
 	 * The string of collection on Trello API.
