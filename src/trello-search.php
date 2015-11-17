@@ -13,8 +13,6 @@ class TrelloSearch extends Trello
 	 */
 	public $collection = "search";
 
-	public $id = "";
-
 	/**
 	 * Perform a search on a Trello org
 	 * @param  string $query       Query to be searched
