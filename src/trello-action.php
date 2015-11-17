@@ -4,7 +4,7 @@
 *
 * API Reference: https://developers.trello.com/advanced-reference/action
 */
-class TrelloCard extends Trello
+class TrelloAction extends Trello
 {
 	/**
 	 * The string of collection on Trello API.

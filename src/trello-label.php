@@ -4,7 +4,7 @@
 *
 * API Reference: https://developers.trello.com/advanced-reference/label
 */
-class TrelloCard extends Trello
+class TrelloLabel extends Trello
 {
 	/**
 	 * The string of collection on Trello API.
