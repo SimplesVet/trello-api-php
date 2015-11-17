@@ -2,6 +2,7 @@
 require 'curl.php';
 require 'trello-board.php';
 require 'trello-card.php';
+require 'trello-search.php';
 
 use Curl\Curl;
 /**
