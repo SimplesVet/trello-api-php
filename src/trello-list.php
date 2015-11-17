@@ -39,7 +39,7 @@ class TrelloList extends Trello
 
 	public function moveToBoard ($listID, $boardID, $position = "") {
 		$data = array("value" => $boardID);
-		if (!is_null($position)) {
+		if (!empty($position)) {
 			$data['pos'] = $position;
 		}
 		$this->put($cardID, $data, "idBoard");
