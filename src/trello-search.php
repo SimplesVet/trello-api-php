@@ -15,7 +15,6 @@ class TrelloSearch extends Trello
 
 	public $id = "";
 
-
 	/**
 	 * Perform a search on a Trello org
 	 * @param  string $query       Query to be searched
@@ -42,7 +41,7 @@ class TrelloSearch extends Trello
 			if(!empty($arguments)){
 				$argumentsParam = '&' . http_build_query($arguments);
 			}
-			echo $url . 'search' . $authParam . $argumentsParam;
+
 			$this->curl->get($url . 'search' . $authParam . $argumentsParam);
 			$this->id = $this->curl->response->id;
 			return $this->curl->response;

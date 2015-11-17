@@ -105,7 +105,6 @@ class Trello
 			$authParam = $this->getAuthParam();
 			$url = $this->getUrl();
 			$rs = $this->curl->put($url . $this->collection .'/' . $collectionId . '/' . $complement . $authParam, $data);
-			print_r($rs);
 			return $this->curl->response;
 		} catch (Exception $e) {
 			throw new Exception($e->getMessage());
