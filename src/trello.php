@@ -1,8 +1,12 @@
 <?php
 require 'curl.php';
+require 'trello-action.php';
 require 'trello-auth.php';
 require 'trello-board.php';
 require 'trello-card.php';
+require 'trello-checklist.php';
+require 'trello-label.php';
+require 'trello-list.php';
 require 'trello-search.php';
 
 use Curl\Curl;
