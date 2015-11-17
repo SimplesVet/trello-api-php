@@ -6,5 +6,5 @@
 */
 class TrelloBoard extends Trello
 {
-	public $collection = "boards";
+	public $collection = "board";
 }
