@@ -4,9 +4,6 @@ header('Content-Type: text/html; charset=utf-8');
 
 require '../src/trello.php';
 
-$key = 'ceffa4a5badbcfb28f8bb92eb34db123';
-$token = '8601b7f8825fb51b17621a54a269dffa20da0f9586d8f71f85e5d8597773a605';
-
 try {
 	echo '<pre>';
 
